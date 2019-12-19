@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { auth } from '../redux/user'
-import {Button, Input, Link} from '@material-ui/core'
+import {Button, Input, InputLabel, Link} from '@material-ui/core'
 
 
 class AuthForm extends React.Component {
@@ -28,15 +28,15 @@ class AuthForm extends React.Component {
         <h1>{displayName}</h1>
         <form onSubmit={this.handleSubmit} name={name}>
           <div>
-            <label htmlFor="email">
+            <InputLabel htmlFor="email">
               <small>Email</small>
-            </label>
+            </InputLabel>
             <Input name="email" type="text" />
           </div>
           <div>
-            <label htmlFor="password">
+            <InputLabel htmlFor="password">
               <small>Password</small>
-            </label>
+            </InputLabel>
             <Input name="password" type="password" />
           </div>
           <div>
