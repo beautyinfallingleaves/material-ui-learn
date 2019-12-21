@@ -23,7 +23,7 @@ class NavBar extends React.Component {
               <NavLink to="/home">Home</NavLink>
               <a href="#" onClick={this.handleLogout}>Logout</a>
               <p>Logged in as {user.email}</p>
-              <img src={user.imageUrl} alt="User's profile photo." />
+              <img src={user.imageUrl} style={{ width: '3rem' }} alt="User's profile photo." />
             </div>
           ) : (
             <div>
