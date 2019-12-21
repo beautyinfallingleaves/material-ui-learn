@@ -1,36 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { withRouter, Route, Switch } from 'react-router-dom'
-import NavBar from './NavBar'
-import { Login, Signup } from './AuthForm'
-import Home from './Home'
-import { me } from '../redux/user'
+import { NavBar, Routes } from './'
 
 class App extends React.Component {
-  componentDidMount() {
-    this.props.loadInitialData()
-  }
-
   render() {
     return (
       <div>
         <NavBar />
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/home" component={Home} />
-        </Switch>
+        <Routes />
       </div>
     )
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadInitialData() {
-      dispatch(me())
-    }
-  }
-}
-
-export default withRouter(connect(null, mapDispatchToProps)(App))
+export default App

@@ -20,9 +20,12 @@ if (process.browser) {
   middleware = [...middleware, createLogger({ collapsed: true })]
 }
 
-export default createStore(
+export const store = createStore(
   appReducer,
   composeWithDevTools(
     applyMiddleware(...middleware)
   )
 )
+
+export * from './user'
+export * from './users'

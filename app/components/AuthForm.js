@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { auth } from '../redux/user'
+import { auth } from '../redux'
 import {Button, Input, InputLabel, Link} from '@material-ui/core'
 
 
