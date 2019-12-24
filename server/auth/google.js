@@ -16,11 +16,11 @@ if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
     googleConfig,
     (token, refreshToken, profile, done) => {
       const info = {
-        name: profile.displayName,
+        firstName: profile.displayName,
         email: profile.emails[0].value,
         imageUrl: profile.photos ? profile.photos[0].value : undefined
       }
-
+      console.log('profile: ', profile)
       User.findOrCreate({
         where: {googleId: profile.id},
         defaults: info

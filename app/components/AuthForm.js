@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { auth } from '../redux'
-import {Button, Input, InputLabel, Link} from '@material-ui/core'
+import {Typography, Button, Input, InputLabel, Link, Card} from '@material-ui/core'
 
 
 class AuthForm extends React.Component {
@@ -24,29 +24,33 @@ class AuthForm extends React.Component {
     const { name, displayName, error } = this.props
 
     return (
-      <div>
-        <h1>{displayName}</h1>
-        <form onSubmit={this.handleSubmit} name={name}>
-          <div>
-            <InputLabel htmlFor="email">
-              <small>Email</small>
-            </InputLabel>
-            <Input name="email" type="text" />
-          </div>
-          <div>
-            <InputLabel htmlFor="password">
-              <small>Password</small>
-            </InputLabel>
-            <Input name="password" type="password" />
-          </div>
-          <div>
-            <Button variant="contained" color="primary" type="submit">{displayName}</Button>
-          </div>
-          {error && error.response && <div> {error.response.data} </div>}
-        </form>
-        <Link href="/auth/google">{displayName} With Google
-          {/* <a href="/auth/google">{displayName} with Google</a> */}
-        </Link>
+      <div id="auth-component">
+        <Card id="login-card">
+          <Typography variant="h2" color="primary">{displayName}</Typography>
+          <form onSubmit={this.handleSubmit} name={name}>
+            <div>
+              <InputLabel htmlFor="email">
+                <small>Email</small>
+              </InputLabel>
+              <Input name="email" type="text" />
+            </div>
+            <div>
+              <InputLabel htmlFor="password">
+                <small>Password</small>
+              </InputLabel>
+              <Input name="password" type="password" />
+            </div>
+            <div>
+              <Button variant="contained" color="primary" type="submit">{displayName}</Button>
+            </div>
+            {error && error.response && <div> {error.response.data} </div>}
+          </form>
+          <Link href="/auth/google">
+            <Typography variant="body1" color="primary">
+              Or, {displayName} with Google
+            </Typography>
+          </Link>
+        </Card>
       </div>
     )
   }

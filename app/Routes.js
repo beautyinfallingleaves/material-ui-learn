@@ -11,7 +11,7 @@ class Routes extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="routes-component">
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />

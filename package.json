@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "time-garden",
   "version": "0.0.1",
-  "description": "boilerplate for react-redux-express-sequelize app",
+  "description": "a kind time management helper",
   "main": "server/index.js",
   "scripts": {
     "build-client": "webpack",

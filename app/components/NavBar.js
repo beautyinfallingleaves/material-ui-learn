@@ -17,17 +17,16 @@ class NavBar extends React.Component {
   render() {
     const { user, isLoggedIn } = this.props
     return (
-      <div>
+      <div id="navbar-component">
         <AppBar position="static">
-          <Toolbar id="nav">
+          <Toolbar id="nav-content">
             <Typography variant="h6" color="inherit">
-              Site Name
+              Time Garden
             </Typography>
             {isLoggedIn ? (
               <div>
                 <NavLink to="/home">Home</NavLink>
                 <a href="#" onClick={this.handleLogout}>Logout</a>
-                <Typography variant="body1">Logged in as {user.email}</Typography>
                 <img src={user.imageUrl} style={{ width: '3rem' }} alt="User's profile photo." />
               </div>
             ) : (
