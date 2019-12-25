@@ -47,7 +47,7 @@ class AuthForm extends React.Component {
           </form>
           <Link href="/auth/google">
             <Typography variant="body1" color="primary">
-              Or, {displayName} with Google
+              Or {displayName} with Google
             </Typography>
           </Link>
         </Card>
