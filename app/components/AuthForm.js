@@ -1,8 +1,8 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { auth } from '../redux'
-import {Typography, Button, Input, InputLabel, Link, Card} from '@material-ui/core'
+import {Typography, Button, Input, Link, Card} from '@material-ui/core'
 
 
 class AuthForm extends React.Component {
@@ -25,31 +25,32 @@ class AuthForm extends React.Component {
 
     return (
       <div id="auth-component">
-        <Card id="login-card">
-          <Typography variant="h2" color="primary">{displayName}</Typography>
-          <form onSubmit={this.handleSubmit} name={name}>
-            <div>
-              <InputLabel htmlFor="email">
-                <small>Email</small>
-              </InputLabel>
-              <Input name="email" type="text" />
-            </div>
-            <div>
-              <InputLabel htmlFor="password">
-                <small>Password</small>
-              </InputLabel>
-              <Input name="password" type="password" />
-            </div>
-            <div>
-              <Button variant="contained" color="primary" type="submit">{displayName}</Button>
-            </div>
-            {error && error.response && <div> {error.response.data} </div>}
-          </form>
-          <Link href="/auth/google">
+        <Card id="login-card" style={{width: 340, height: 478}}>
+          <Typography variant="h5" color="primary">Welcome to Time Garden!</Typography>
+          <div style={{ width: '90%' }}>
+            <form style={{width: '100%' }} onSubmit={this.handleSubmit} name={name}>
+              <Input fullWidth={true} name="email" type="text" autoFocus={true} placeholder="Email" />
+              <Input fullWidth={true} name="password" type="password" placeholder="Password" />
+              <br />
+              <Button variant="contained" fullWidth={true} color="primary" type="submit">{displayName}</Button>
+              {error && error.response && <div> {error.response.data} </div>}
+            </form>
             <Typography variant="body1" color="primary">
-              Or {displayName} with Google
+              or
             </Typography>
-          </Link>
+            <Button href="/auth/google" variant="contained" fullWidth={true} color="primary">
+              Continue with Google
+            </Button>
+            {name === 'login' ? (
+              <Typography variant="body1" color="primary">
+                Not a registered user? <NavLink to="/signup">Sign Up</NavLink>
+              </Typography>
+            ) : (
+              <Typography variant="body1" color="primary">
+                Already a registered user? <NavLink to="/login">Log In</NavLink>
+              </Typography>
+            )}
+          </div>
         </Card>
       </div>
     )

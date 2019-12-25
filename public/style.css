@@ -31,7 +31,7 @@ html, body {
 
 #login-card {
   position: absolute;
-  top: 25%;
+  top: 20%;
   left: 35%;
   width: 30%;
   margin: auto;
@@ -44,4 +44,7 @@ html, body {
 
 #login-card * {
   margin: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

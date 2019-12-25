@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Route, Switch } from 'react-router-dom'
+import { withRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { Login, Signup, Home } from './components'
 import { me } from './redux/user'
 
@@ -16,6 +16,7 @@ class Routes extends React.Component {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/home" component={Home} />
+          <Redirect exact from="/" to="login" />
         </Switch>
       </div>
     )
